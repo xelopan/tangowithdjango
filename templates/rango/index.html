@@ -18,6 +18,7 @@
         {% else %}
         <strong>There are no categories present.</strong>
         {% endif %}
+        <a href="/rango/add_category">Add a new Category</a>
 
         {% if top_pages %}
         <h3>Top Viewed Pages</h3>
@@ -25,9 +26,9 @@
             {% for page in top_pages %}
                 <li><a href="{{ page.url }}">{{ page.title }}</a></li>
             {% endfor %}
-            <ul>
+            </ul>
         {% endif %}
 
-        <a href="/rango/about">About</a>
+        <a href="/rango/about">About page</a>
     </body>
 </html>

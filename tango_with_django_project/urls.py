@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from tango_with_django_project import views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -26,3 +27,5 @@ if settings.DEBUG:
             { 'document_root': settings.MEDIA_ROOT}
         ),
     )
+
+handler404 = views.error404
