@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Rango</title>
-    </head>
-    <body>
-        <h1>Login to Rango</h1>
+{% extends 'rango/base.html' %}
 
-        <form id="login_form" action="{% url 'login' %}" method="post">
-            {% csrf_token %}
+{% block title %}Login{% endblock %}
 
-            {% if error %}
-            {{ error }}<br>
-            {% endif %}
+{% block body_block %}
+    <h1>Login to Rango</h1>
 
-            Username: <input type="text" name="username" value="" size="50">
-            <br>
-            Password: <input type="password" name="password" value="" size="50">
-            <br>
+    <form id="login_form" action="{% url 'rango:login' %}" method="post">
+        {% csrf_token %}
 
-            <input type="submit" value="Login">
-        </form>
-    </body>
-</html>
+        {% if error %}
+        {{ error }}<br>
+        {% endif %}
+
+        Username: <input type="text" name="username" value="" size="50">
+        <br>
+        Password: <input type="password" name="password" value="" size="50">
+        <br>
+
+        <input type="submit" value="Login">
+    </form>
+{% endblock %}

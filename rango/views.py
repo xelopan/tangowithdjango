@@ -144,7 +144,7 @@ def user_login(request):
             if user.is_active:
                 login(request, user)
 
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('rango:index'))
             else:
                 return HttpResponse("Your Rango account is disabled.")
         else:
@@ -157,8 +157,9 @@ def user_login(request):
 def user_logout(request):
     logout(request)
 
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('rango:index'))
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    context = RequestContext(request)
+    return render_to_response('rango/restricted.html', {}, context)
